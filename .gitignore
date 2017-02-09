@@ -63,3 +63,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+*.iml
+gradle
+.idea
+*.swp
+

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Movie Browser</string>
+    <string name="sortby_rating">Sort by Rating</string>
+    <string name="sortby_popularity">Sort by Popularity</string>
+    <string name="no_internet">No Internet connection!</string>
+    <string name="faild_to_parse">Unalbe to parse movies.</string>
+    <string name="faild_to_download">Unable to download movies.</string>
+
+    <string name="token"></string>
+</resources>
