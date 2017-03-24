@@ -1,9 +1,7 @@
 package hu.janos.elek.udacity.android.movies.details;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -24,40 +22,52 @@ abstract class ViewHolders extends RecyclerView.ViewHolder {
         this.itemView = itemView;
     }
 
-    abstract void bind();
+    abstract void bind(int position);
+}
+
+class VideoViewHolder extends ViewHolders {
+
+    private DetailsAdapter adapter;
+    private TextView video_title;
+
+    VideoViewHolder(View itemView, DetailsAdapter adapter) {
+        super(itemView);
+        this.adapter = adapter;
+
+        video_title = (TextView) itemView.findViewById(R.id.video_title);
+    }
+
+    @Override
+    void bind(int position) {
+        video_title.setText(adapter.getVideo(position).getName());
+    }
 }
 
 class PlotViewHolder extends ViewHolders {
     private TextView plotView = null;
-    private Intent startingIntent;
+    private Movie movie;
 
-    PlotViewHolder(View itemView, Intent startingIntent) {
+    PlotViewHolder(View itemView, Movie movie) {
         super(itemView);
-        this.startingIntent = startingIntent;
+        this.movie = movie;
     }
 
-    void bind() {
-        if (startingIntent.hasExtra(Movie.class.getName())) {
-            Movie movie = (Movie) startingIntent.getSerializableExtra(Movie.class.getName());
-            Log.d(this.getClass().getName(), "Title: " + movie.getTitle() + ", Release: " + movie.getReleaseDate() +
-                    ", Vote: " + movie.getVoteAverage());
+    void bind(int position) {
+        TextView title = (TextView) itemView.findViewById(R.id.title_view);
+        title.setText(movie.getTitle());
+        TextView release_date = (TextView) itemView.findViewById(R.id.release_view);
+        release_date.setText(movie.getReleaseDate());
+        RatingBar vote = (RatingBar) itemView.findViewById(R.id.average_vote);
+        vote.setRating(movie.getVoteAverage() / 10 * 5);
 
-            TextView title = (TextView) itemView.findViewById(R.id.title_view);
-            title.setText(movie.getTitle());
-            TextView release_date = (TextView) itemView.findViewById(R.id.release_view);
-            release_date.setText(movie.getReleaseDate());
-            RatingBar vote = (RatingBar) itemView.findViewById(R.id.average_vote);
-            vote.setRating(movie.getVoteAverage() / 10 * 5);
+        plotView = (TextView) itemView.findViewById(R.id.plot_view);
 
-            plotView = (TextView) itemView.findViewById(R.id.plot_view);
+        String posterPath = movie.getPosterPath();
+        Picasso.with(itemView.getContext())
+                .load(Utils.buildImageUrlString(posterPath))
+                .into((ImageView) itemView.findViewById(R.id.details_poster));
 
-            String posterPath = movie.getPosterPath();
-            Picasso.with(itemView.getContext())
-                    .load(Utils.buildImageUrlString(posterPath))
-                    .into((ImageView) itemView.findViewById(R.id.details_poster));
-
-            new GetPlotTask().execute(movie.getId());
-        }
+        new GetPlotTask().execute(movie.getId());
     }
 
     private class GetPlotTask extends AsyncTask<Integer, Void, String> {

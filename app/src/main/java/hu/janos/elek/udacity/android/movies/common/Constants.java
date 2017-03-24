@@ -24,7 +24,7 @@ public class Constants {
     public static final String TMPDB_API_VIDEO_RESULTS = "results";
     public static final String TMPDB_API_VIDEO_RESULTS_ID = "id";
     public static final String TMPDB_API_VIDEO_RESULTS_ISO_639 = "iso_639_1";
-    public static final String TMPDB_API_VIDEO_RESULTS_ISO_3166 = "iso_1366_1";
+    public static final String TMPDB_API_VIDEO_RESULTS_ISO_3166 = "iso_3166_1";
     public static final String TMPDB_API_VIDEO_RESULTS_KEY = "key";
     public static final String TMPDB_API_VIDEO_RESULTS_NAME = "name";
     public static final String TMPDB_API_VIDEO_RESULTS_SITE = "site";
