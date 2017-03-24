@@ -1,5 +1,9 @@
 package hu.janos.elek.udacity.android.movies;
 
+import hu.janos.elek.udacity.android.movies.data.Movie;
+import hu.janos.elek.udacity.android.movies.data.Video;
+import hu.janos.elek.udacity.android.movies.common.Utils;
+
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

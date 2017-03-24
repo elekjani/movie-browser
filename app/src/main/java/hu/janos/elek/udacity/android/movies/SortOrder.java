@@ -1,5 +1,5 @@
 package hu.janos.elek.udacity.android.movies;
 
-enum SortOrder {
+public enum SortOrder {
     POPULAR, TOP_RATED
 }

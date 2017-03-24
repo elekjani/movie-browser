@@ -1,8 +1,8 @@
-package hu.janos.elek.udacity.android.movies;
+package hu.janos.elek.udacity.android.movies.data;
 
 import java.io.Serializable;
 
-class Movie implements Serializable{
+public class Movie implements Serializable{
     private int id;
     private String posterPath;
     private String title;
@@ -10,55 +10,55 @@ class Movie implements Serializable{
     private float voteAverage;
     private String overview;
 
-    Movie(int id) {
+    public Movie(int id) {
         this.id = id;
     }
 
-    int getId() {
+    public int getId() {
         return id;
     }
 
-    String getPosterPath() {
+    public String getPosterPath() {
         return posterPath;
     }
 
-    Movie setPosterPath(String posterPath) {
+    public Movie setPosterPath(String posterPath) {
         this.posterPath = posterPath;
         return this;
     }
 
-    String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    Movie setTitle(String title) {
+    public Movie setTitle(String title) {
         this.title = title;
         return this;
     }
 
-    float getVoteAverage() {
+    public float getVoteAverage() {
         return voteAverage;
     }
 
-    Movie setVoteAverage(float voteAverage) {
+    public Movie setVoteAverage(float voteAverage) {
         this.voteAverage = voteAverage;
         return this;
     }
 
-    String getReleaseDate() {
+    public String getReleaseDate() {
         return releaseDate;
     }
 
-    Movie setReleaseDate(String releaseDate) {
+    public Movie setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
         return this;
     }
 
-    String getOverview() {
+    public String getOverview() {
         return overview;
     }
 
-    Movie setOverview(String overview) {
+    public Movie setOverview(String overview) {
         this.overview = overview;
         return this;
     }

@@ -7,12 +7,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import hu.janos.elek.udacity.android.movies.common.Constants;
+import hu.janos.elek.udacity.android.movies.common.Utils;
+import hu.janos.elek.udacity.android.movies.common.UtilsException;
+import hu.janos.elek.udacity.android.movies.data.Movie;
+import hu.janos.elek.udacity.android.movies.details.MovieDetailsActivity;
 
 public class MainActivity extends AppCompatActivity
         implements MoviesAdapter.ListItemClickListener, MoviesAdapter.MovieLoader {
@@ -94,7 +101,7 @@ public class MainActivity extends AppCompatActivity
         new MovieDbTask().execute(page);
     }
 
-    class MovieDbTask extends AsyncTask<Integer, Void, List<Movie>> {
+    private class MovieDbTask extends AsyncTask<Integer, Void, List<Movie>> {
 
         private int errorResId = -1;
 

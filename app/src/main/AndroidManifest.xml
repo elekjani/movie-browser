@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="hu.janos.elek.udacity.android.movies.MovieDetailsActivity">
+        <activity android:name="hu.janos.elek.udacity.android.movies.details.MovieDetailsActivity">
 
         </activity>
     </application>
